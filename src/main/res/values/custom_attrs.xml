@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2014 Sony Mobile Communications Inc.
+  ~
+  ~ All rights reserved.
+  ~
+  ~ Redistribution and use in source and binary forms, with or without
+  ~ modification, are permitted provided that the following conditions are met:
+  ~
+  ~ 1. Redistributions of source code must retain the above copyright notice, this
+  ~    list of conditions and the following disclaimer.
+  ~
+  ~ 2. Redistributions in binary form must reproduce the above copyright notice,
+  ~    this list of conditions and the following disclaimer in the documentation
+  ~    and/or other materials provided with the distribution.
+  ~
+  ~ 3. Neither the name of the copyright holder nor the names
+  ~    of its contributors may be used to endorse or promote products derived from
+  ~    this software without specific prior written permission.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ~ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  ~ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  ~ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  ~ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  ~ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  ~ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  ~ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  ~ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+<resources>
+    <declare-styleable name="SWR30Attrs">
+        <!--An integer designates the minimum API version required for the application to support the API. The host application will show applications with swr30ExtensionMinApiVersion value equal to, or higher than the version the host application implements. If not set, 1 is assumed.<br>
+        Also see <a href="package-summary.html#ControlRegistration">Control registration</a>.
+        @since 1-->
+        <attr name="swr30ExtensionMinApiVersion" format="integer"/>
+
+        <!-- The name of the class that implements the control, a subclass of {@link com.sonymobile.smartwear.swr30.Control}. The attribute value should be a fully qualified class name (such as, "com.example.project.ExtracurricularControl").
+        However, as a shorthand, if the first character of the name is a period (for example, ".ExtracurricularControl"), it is appended to the package name.
+        The value of this string will <b>NOT</b> be shown to the user, and must <b>NOT</b> be translated.<br>
+        Also see <a href="package-summary.html#ControlRegistration">Control registration</a>.
+        @since 1-->
+        <attr name="swr30ControlName" format="reference"/>
+        <!-- Specifies a preview of what the control will look like after it is configured. This is shown when the user adds a control in the host application UI.
+        If you want to define a preview image that depends on the user setting of your control activity you should also override
+        {@link com.sonymobile.smartwear.swr30.Control#getPreviewImage()}.<br>
+        If no start image is defined by your application, the preview image is also used as start image on the accessory.<br>
+        The image should be placed in res/drawable-nodpi folder.<br>
+        The image should be pure black and white with dimensions of either 296*128 or 128*296.<br>
+        Also see <a href="package-summary.html#ControlRegistration">Control registration</a>.
+        @since 1-->
+        <attr name="swr30ControlPreviewImage" format="reference"/>
+        <!-- Specifies a start image that should be shown by the accessory when the control is started.
+        The image is shown on the accessory display directly when the control is started, followed by onStart call in your application,
+        (see <a href="Control.html#ControlLifecycle">Control Lifecycle</a>), to get faster response when starting your control.
+        The start image is also shown on the accessory when the user navigates to the application while the accessory has lost connection with the host application.<br>
+        If you want to define a start image that depends on the user setting of your control activity you should override
+        {@link com.sonymobile.smartwear.swr30.Control#getStartImage()} instead.<br>
+        If no start image is defined by your application, the preview image will be used as start image instead.<br>
+        The image should be placed in res/drawable-nodpi folder.<br>
+        The image should be pure black and white with dimensions of either 296*128 or 128*296.<br>
+        Landscape images are rotated on the accessory automatically depending on the left/right hand setting in the host application.<br>
+        Also see <a href="package-summary.html#ControlRegistration">Control registration</a>.
+        @since 1-->
+        <attr name="swr30ControlStartImage" format="reference"/>
+        <!--A user-readable label for the control. Shown in the host application when adding a control instance. The label should be set as a reference to a string resource, so that it can be localized.<br>
+        If missing, {@link android.content.pm.PackageManager#getApplicationLabel(android.content.pm.ApplicationInfo)} is displayed by the host application instead.<br>
+        Also see <a href="package-summary.html#ControlRegistration">Control registration</a>.
+        @since 1-->
+        <attr name="swr30ControlLabel" format="reference|string"/>
+        <!--If set to true the host application will only allow the user to add one instance of the control.<br>
+        If missing or set to false, the host application will allow the user to create multiple instances of the control. The user may for example add different instances of a world clock control for different cities.<br>
+        @since 1-->
+        <attr name="swr30ControlSingleInstance" format="boolean"/>
+
+    </declare-styleable>
+</resources>
